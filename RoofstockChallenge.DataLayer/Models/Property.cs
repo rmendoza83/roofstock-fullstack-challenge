@@ -1,6 +1,6 @@
 ﻿using LinqToDB.Mapping;
 
-namespace RoofstockChallenge.DataLayer
+namespace RoofstockChallenge.DataLayer.Models
 {
 	public class Property
 	{
@@ -11,5 +11,5 @@ namespace RoofstockChallenge.DataLayer
 		public decimal YearBuilt { get; set; }
 		public decimal ListPrice { get; set; }
 		public decimal MonthlyRent { get; set; }
-    }
+	}
 }
