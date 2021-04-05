@@ -1,3 +1,5 @@
+using LinqToDB.AspNet;
+using LinqToDB.AspNet.Logging;
 using LinqToDB.Data;
 using LinqToDB.DataProvider.SqlServer;
 using Microsoft.AspNetCore.Builder;
@@ -6,6 +8,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RoofstockChallenge.DataLayer;
+using RoofstockChallenge.Managers.Managers;
 
 namespace RoofstockChallenge
 {
@@ -23,11 +27,6 @@ namespace RoofstockChallenge
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			// Adding Linq2DB settings
-			DataConnection.AddConfiguration(ROOFSTOCK_DB_CONNECTION,
-				Configuration.GetConnectionString(ROOFSTOCK_DB_CONNECTION),
-				new SqlServerDataProvider(ROOFSTOCK_DB_CONNECTION, SqlServerVersion.v2008));
-
 			services.AddControllersWithViews();
 			// In production, the Angular files will be served from this directory
 			services.AddSpaStaticFiles(configuration =>
@@ -36,6 +35,15 @@ namespace RoofstockChallenge
 			});
 			// Adding Automapper
 			services.AddAutoMapper(typeof(Startup));
+			services.AddHttpClient();
+
+			services.AddLinqToDbContext<RoofstockChallengeDB>((provider, options) =>
+			{
+				options
+					.UseConnectionString(LinqToDB.ProviderName.SqlServer2012, Configuration.GetConnectionString(ROOFSTOCK_DB_CONNECTION))
+					.UseDefaultLogging(provider);
+			});
+			services.AddScoped(typeof(PropertyManager));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
