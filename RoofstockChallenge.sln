@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoofstockChallenge.Web", "RoofstockChallenge.Web\RoofstockChallenge.Web.csproj", "{5A23E017-DF85-46DB-8E92-4E4A4F499D95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofstockChallenge.DataLayer", "RoofstockChallenge.DataLayer\RoofstockChallenge.DataLayer.csproj", "{88ED8CF5-2C31-4616-AFE4-BAAEFAB2B8BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofstockChallenge.Managers", "RoofstockChallenge.Managers\RoofstockChallenge.Managers.csproj", "{5FDBE95D-7FCA-415F-A59C-829D045C5159}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5A23E017-DF85-46DB-8E92-4E4A4F499D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A23E017-DF85-46DB-8E92-4E4A4F499D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A23E017-DF85-46DB-8E92-4E4A4F499D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88ED8CF5-2C31-4616-AFE4-BAAEFAB2B8BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88ED8CF5-2C31-4616-AFE4-BAAEFAB2B8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88ED8CF5-2C31-4616-AFE4-BAAEFAB2B8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88ED8CF5-2C31-4616-AFE4-BAAEFAB2B8BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDBE95D-7FCA-415F-A59C-829D045C5159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDBE95D-7FCA-415F-A59C-829D045C5159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDBE95D-7FCA-415F-A59C-829D045C5159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDBE95D-7FCA-415F-A59C-829D045C5159}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
