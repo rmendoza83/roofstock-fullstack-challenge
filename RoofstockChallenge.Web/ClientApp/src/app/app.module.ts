@@ -9,6 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 
 import { DataService } from './services/data.service';
 
+import { TableModule } from 'primeng/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { DataService } from './services/data.service';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' }
-    ])
+    ]),
+    TableModule,
   ],
   providers: [
     DataService

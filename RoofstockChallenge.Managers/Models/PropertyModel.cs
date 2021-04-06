@@ -2,7 +2,7 @@
 {
 	public class PropertyModel
 	{
-		public int Id { get; set; }
+		public int? Id { get; set; }
 		public int RawId { get; set; }
 		public string Address { get; set; }
 		public int YearBuilt { get; set; }
@@ -14,7 +14,7 @@
 			{
 				if (ListPrice > 0)
 				{
-					return (MonthlyRent * 12 / ListPrice) * 100;
+					return MonthlyRent * 12 / ListPrice;
 				}
 				return 0;
 			}

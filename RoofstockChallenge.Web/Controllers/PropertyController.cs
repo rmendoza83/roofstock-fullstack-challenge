@@ -24,7 +24,7 @@ namespace RoofstockChallenge.Web.Controllers
 
         [HttpPost]
         [Route("api/Property/Post")]
-        public async Task<ActionResult> Post(PropertyModel model)
+        public async Task<ActionResult> Post([FromBody] PropertyModel model)
         {
             var resp = await _manager.Post(model);
             return Ok(resp);

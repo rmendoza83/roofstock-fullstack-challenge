@@ -4,6 +4,7 @@ using RoofstockChallenge.DataLayer.Models;
 using RoofstockChallenge.Managers.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -66,10 +67,22 @@ namespace RoofstockChallenge.Managers.Managers
 
             try
 			{
-                Property data = _mapper.Map<Property>(model);
-                var result = await _db.InsertAsync(data);
-                resp.Success = true;
-                resp.ErrorMessage = null;
+                var query = (from p in _db.Properties
+                             where p.RawId == model.RawId
+                             select p)
+                             .ToList();
+                
+                if (query.Count == 0)
+				{
+                    Property data = _mapper.Map<Property>(model);
+                    var result = await _db.InsertAsync(data);
+                    resp.Success = true;
+                    resp.ErrorMessage = null;
+                }
+                else
+				{
+                    throw new Exception("Property already exist in the database");
+				}
 			}
             catch (Exception ex)
 			{
