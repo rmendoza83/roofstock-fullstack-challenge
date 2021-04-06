@@ -8,7 +8,7 @@ namespace RoofstockChallenge.DataLayer.Models
 		public int Id { get; set; }
 		public int RawId { get; set; }
 		public string Address { get; set; }
-		public decimal YearBuilt { get; set; }
+		public int YearBuilt { get; set; }
 		public decimal ListPrice { get; set; }
 		public decimal MonthlyRent { get; set; }
 	}

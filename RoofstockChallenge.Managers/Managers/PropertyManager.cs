@@ -25,9 +25,9 @@ namespace RoofstockChallenge.Managers.Managers
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<PropertyRawListResponseModel> GetList()
+        public async Task<PropertyListResponseModel> GetList()
 		{
-            PropertyRawListResponseModel resp = new PropertyRawListResponseModel();
+            PropertyListResponseModel resp = new PropertyListResponseModel();
             try
             {
                 // Get the data from the API endpoint
@@ -41,7 +41,7 @@ namespace RoofstockChallenge.Managers.Managers
                     {
                         // Serialize the fetched data
                         var data = await JsonSerializer.DeserializeAsync<PropertyRawResponseModel>(responseStream);
-                        resp.Properties = _mapper.Map<IEnumerable<PropertyRawModel>>(data.properties);
+                        resp.Properties = _mapper.Map<IEnumerable<PropertyModel>>(data.properties);
                         resp.Success = true;
                         resp.ErrorMessage = null;
                     };

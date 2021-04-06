@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RoofstockChallenge.DataLayer;
 using RoofstockChallenge.Managers.Managers;
+using System;
 
 namespace RoofstockChallenge
 {
@@ -44,6 +45,9 @@ namespace RoofstockChallenge
 					.UseDefaultLogging(provider);
 			});
 			services.AddScoped(typeof(PropertyManager));
+
+			services.AddMvc()
+				.AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,6 +89,7 @@ namespace RoofstockChallenge
 
 				if (env.IsDevelopment())
 				{
+					spa.Options.StartupTimeout = new TimeSpan(0, 0, 80);
 					spa.UseAngularCliServer(npmScript: "start");
 				}
 			});

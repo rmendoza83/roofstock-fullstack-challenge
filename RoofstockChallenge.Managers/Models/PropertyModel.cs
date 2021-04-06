@@ -5,7 +5,7 @@
 		public int Id { get; set; }
 		public int RawId { get; set; }
 		public string Address { get; set; }
-		public decimal YearBuilt { get; set; }
+		public int YearBuilt { get; set; }
 		public decimal ListPrice { get; set; }
 		public decimal MonthlyRent { get; set; }
 		public decimal GrossYield
@@ -14,7 +14,7 @@
 			{
 				if (ListPrice > 0)
 				{
-					return MonthlyRent * 12 / ListPrice;
+					return (MonthlyRent * 12 / ListPrice) * 100;
 				}
 				return 0;
 			}

@@ -9,6 +9,7 @@ namespace RoofstockChallenge.Web
 		public AutoMapperProfile()
 		{
 			CreateMap<PropertyRawModel, PropertyModel>()
+				.ForMember(dest => dest.Id, opt => opt.Ignore())
 				.ForMember(dest => dest.RawId, opt => opt.MapFrom(src => src.id))
 				.ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.address.address1 + ", " + src.address.city + ", " + src.address.country))
 				.ForMember(dest => dest.YearBuilt, opt => opt.MapFrom(src => src.physical.yearBuilt))
