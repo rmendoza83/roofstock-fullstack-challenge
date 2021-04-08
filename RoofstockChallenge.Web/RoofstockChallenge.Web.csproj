@@ -25,6 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="WeatherForecast.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\RoofstockChallenge.DataLayer\RoofstockChallenge.DataLayer.csproj" />
     <ProjectReference Include="..\RoofstockChallenge.Managers\RoofstockChallenge.Managers.csproj" />
   </ItemGroup>
